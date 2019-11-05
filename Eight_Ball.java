@@ -15,8 +15,8 @@ public class Eight_Ball
       // note for brendon: make sure you add contractions such as, what's. I'll add it to your thing
       if(question.startsWith("what is"))
       {
-      System.out.print("It is" + question.substring(7) + ". ");
-      System.out.println();
+	      System.out.print("It is" + question.substring(7) + ". ");
+	      System.out.println();
       }
     }
   }
