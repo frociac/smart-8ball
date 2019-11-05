@@ -11,6 +11,8 @@ public class Eight_Ball
     {
       System.out.print("Ask me a question! (Use correct English grammar for useful results) ");
       String question = input.nextLine().toLowerCase();
+      question = question.replace("?", "");
+      // note for brendon: make sure you add contractions such as, what's. I'll add it to your thing
       if(question.startsWith("what is"))
       {
       System.out.print("It is" + question.substring(7) + ". ");
