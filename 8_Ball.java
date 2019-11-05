@@ -3,9 +3,9 @@ import java.util.Random;
 
 public class 8_Ball 
 {
-	public static void main(String[] args) 
+  public static void main(String[] args) 
   {
-		Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
     
     while(true)
     {
@@ -17,5 +17,5 @@ public class 8_Ball
       System.out.print("It is" + question.substring(7) + ".");
       }
     }
-	}
+  }
 }
