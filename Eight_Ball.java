@@ -83,12 +83,12 @@ public class Eight_Ball
                     //smh finally a real 8ball
                     //you can add onto these arrays btw
                     String[] whoIsAns = {"Someone you know.", "Your mother.", "A being that only exists in your imagination.", "Probably someone of slight significance."};
-                    int whoIsInt = random.nextInt(whoIsAns.length);
+                    int whoIsInt = random.nextInt(whoIsAns.length + 1);
                     answer = whoIsAns[whoIsInt];
                     break;
                 case 6: 
                     String[] whoAreAns = {"Some of your friends.", "A group in which each individual shares similar traits to another individual of the same group.", "They are members of a cult."};
-                    int whoAreInt = random.nextInt(whoAreAns.length);
+                    int whoAreInt = random.nextInt(whoAreAns.length + 1);
                     answer = whoAreAns[whoAreInt];
                     break;
                 case 7: 
