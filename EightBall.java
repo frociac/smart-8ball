@@ -19,14 +19,16 @@ public class EightBall
         String[] places8ball = { //where...?
             "China.",
             "Area 51.",
-            "A planet on another dimension.",
+            "A planet in another dimension.",
             "Llanfairpwllgwyngyll, a village in Anglesey, Wales."
         };
 
         String[] time8ball = { //when...?
             "Tomorrow, at exactly 4:20pm.",
             "In approximately 604,800 seconds.",
-            "During the winter."
+            "During the winter.",
+            "Right now.",
+            "Never."
         };
 
         String[] reasons8ball = { //why...?
@@ -40,7 +42,8 @@ public class EightBall
             "Your mother.",
             "Barack Obama.",
             "One that exists only in the imagination.",
-            "Someone of slight significance."
+            "Someone of slight significance.",
+            "John Cena."
         };
 
         String[] whoAre8ball = { //who are...?
@@ -155,6 +158,15 @@ public class EightBall
             else if(question.startsWith("why"))
                 caseChecker = 19;
 
+            //or
+            else if(question.contains(" or ") && !(question.startsWith("which") || question.startsWith("what") || question.startsWith("when") || question.startsWith("where") || question.startsWith("why") || question.startsWith("who")))
+                caseChecker = 20;
+        
+            //default8ball
+            else if(question.startsWith("is") || question.startsWith("are") || question.startsWith("am") || question.startsWith("will") || question.startsWith("would") || question.startsWith("do") || question.startsWith("does") || question.startsWith("did") || question.startsWith("wont") || question.startsWith("might") || question.startsWith("so"))
+                caseChecker = 21;
+
+            //stop
             else if(question.equals("stop"))
                 break;
 
@@ -165,6 +177,8 @@ public class EightBall
             //where: 17
             //when: 18
             //why: 19
+            //or: 20
+            //default8ball: 21
             switch(caseChecker)
             {
                 case 0:
@@ -240,6 +254,24 @@ public class EightBall
                 case 19:
                     int whyInt = random.nextInt(reasons8ball.length);
                     answer = reasons8ball[whyInt];
+                    break;
+
+                case 20:
+                    //i might be overcomplicating, but it works. change it if theres a simpler way
+                    String[] orItems;
+                    if(question.contains(", ")) {
+                        orItems = question.replace("or ", "").split(", ");
+                    } else {
+                        orItems = question.split(" or ", 2);
+                    }
+                    int orInt = random.nextInt(orItems.length);
+                    String orChosenItem = orItems[orInt];
+                    answer = orChosenItem.substring(0, 1).toUpperCase() + orChosenItem.substring(1) + ".";
+                    break;
+
+                case 21:
+                    int defInt = random.nextInt(default8ball.length);
+                    answer = default8ball[defInt];
                     break;
 
                 default:
