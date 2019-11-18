@@ -24,7 +24,8 @@ public class QuestionChecker
                 question.startsWith("what did") || question.startsWith("what will") || 
                 question.startsWith("what would") || question.startsWith("what wont") || 
                 question.startsWith("what might") || (question.startsWith("what") && 
-                question.contains("doing") && !question.contains("you")))
+                question.contains("doing") && !question.contains("you")) || ((question.startsWith("what") && 
+                question.contains("when")) && Magic8.appearsBefore(question, "what", "when")))
             return 7;
         else if(question.startsWith("what") && (question.contains("color") || question.contains("colour")))
             return 8;

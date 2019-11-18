@@ -21,27 +21,34 @@ public class Magic8
         return index;
     } 
 
+    public static boolean appearsBefore(String s, String a, String b)
+    {
+        boolean appearsBefore;
+        if(s.contains(a) && s.contains(b))
+            if(s.indexOf(a) < s.indexOf(b))
+                appearsBefore = true;
+            else 
+                appearsBefore = false;
+        else
+            appearsBefore = false;
+        
+        return appearsBefore;
+    }
+
     public static boolean isSensical(String question) // checks if question is nonsense, returns boolean
     {
         // i built this method initially but after lots of trial and error i dont understand how it even works
-        String[] qWords = question.split(" ");
         boolean booFin = true;
 
-        String[] interro = {"who", "what", "when", "where", "why", "how"};
-        int interroCount = 0;        
+        String[] interro = {"who", "what", "when", "where", "why", "how"};        
         
         for(String inteWord : interro) {
-            for(int i = 0; i < qWords.length; i++) {
-                if(qWords.equals(inteWord))
-                    interroCount++;
-                    break;
-            }
+            if(question.contains(inteWord))
+                booFin = false;
+                break;
         }
-
-        if(interroCount > 1)
-            booFin = false;
-        else
-            booFin = true;
+            
+        booFin = true;
 
         return booFin; 
     }
@@ -49,7 +56,7 @@ public class Magic8
     public static String getCurrentTime() 
     {
         Date date = new Date();
-        String strDateFormat = "hh:mm a.";
+        String strDateFormat = "hh:mm a";
         DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
         String formattedDate = dateFormat.format(date);
         return formattedDate;
